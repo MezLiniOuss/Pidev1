@@ -1,0 +1,9 @@
+course_homepage:
+    path:     /
+    defaults: { _controller: CourseBundle:Default:index }
+pdf:
+    path:     /pdf1/{id}
+    defaults: { _controller: CourseBundle:Post:pdf }
+admin_course_statistique:
+    path:     /statistique
+    defaults: { _controller: CourseBundle:Post:statistique}
