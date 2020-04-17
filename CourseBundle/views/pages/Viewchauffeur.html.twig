@@ -1,0 +1,36 @@
+{{ include('pages/inc/header.html.twig') }}
+
+<h3 align="center">Liste des courses</h3>
+<table class="table table-striped table-hover" align="center">
+    <thead>
+    <tr>
+
+        <th>Point Depart</th>
+        <th>Point Arrive</th>
+        <th>Client</th>
+        <th>Telephone</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+        <tr>
+
+            <td>{{ course.pointDepart }}</td>
+            <td>{{ course.pointArrive }}</td>
+            <td>{{ course.client}}</td>
+            <td>{{ course.tel}}</td>
+           <td> <a class="nav-link ml-lg-0" href="{{ absolute_url(asset('')) }}validcourse/{{course.id}}">Accepter</a></td>
+        </tr>
+    {% else %}
+        <tr>
+            <td> pas de reservations trouver</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(courses) }}
+</div>
+{{ include('pages/inc/footer.html.twig') }}

@@ -1,0 +1,44 @@
+{{ include('pages/inc/header.html.twig') }}
+<a href="{{ absolute_url(asset('')) }}create_coli" class="btn btn-primary">Réserver une demande</a>
+
+<h3 align="center">Liste de vos demandes de transfert de coli</h3>
+<h1> </h1>
+<table class="table table-striped table-hover" align="center">
+    <thead>
+    <tr>
+
+        <th>point depart</th>
+        <th>point arrive</th>
+        <th>Description de coli</th>
+        <th>chauffeur</th>
+        <th>Validation</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for Transport in Transports %}
+        <tr>
+
+            <td>{{ Transport.pointdepart }}</td>
+            <td>{{ Transport.pointArrive }}</td>
+            <td>{{ Transport.descrption}}</td>
+            <td>{{ Transport.transporteur}}</td>
+            <td>{{ Transport.validation}}</td>
+            <td>
+                Autorisation bloqué
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td> pas de reservations trouver</td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(Transports) }}
+</div>
+
+{{ include('pages/inc/footer.html.twig') }}

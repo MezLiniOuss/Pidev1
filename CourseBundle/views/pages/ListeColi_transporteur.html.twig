@@ -1,0 +1,38 @@
+{{ include('pages/inc/header.html.twig') }}
+
+<h3 align="center">Liste des courses</h3>
+<table class="table table-striped table-hover" align="center">
+    <thead>
+    <tr>
+
+        <th>Point Depart</th>
+        <th>Point Arrive</th>
+        <th>Client</th>
+        <th>Telephone</th>
+        <th>Description de coli</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for Transport in Transports %}
+        <tr>
+
+            <td>{{ Transport.pointdepart }}</td>
+            <td>{{ Transport.pointArrive }}</td>
+            <td>{{ Transport.client}}</td>
+            <td>{{ Transport.tel}}</td>
+            <td>{{ Transport.descrption}}</td>
+            <td> <a class="nav-link ml-lg-0" href="{{ absolute_url(asset('')) }}ValidColi/{{Transport.id}}">Accepter</a></td>
+        </tr>
+    {% else %}
+        <tr>
+            <td> pas de reservations trouver</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(Transports) }}
+</div>
+{{ include('pages/inc/footer.html.twig') }}

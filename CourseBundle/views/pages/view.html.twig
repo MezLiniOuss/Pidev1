@@ -1,0 +1,40 @@
+{{ include('pages/inc/header.html.twig') }}
+<a href="{{ absolute_url(asset('')) }}create" class="btn btn-primary">Réserver une course</a>
+
+<h3 align="center">Liste de vos demandes de courses</h3>
+<table class="table table-striped table-hover" align="center">
+    <thead>
+    <tr>
+
+        <th>point_depart</th>
+        <th>point_arrive</th>
+        <th>chauffeur</th>
+        <th>Validation</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for course in courses %}
+        <tr>
+
+            <td>{{ course.pointDepart }}</td>
+            <td>{{ course.pointArrive }}</td>
+            <td>{{ course.chauffeur}}</td>
+            <td>{{ course.validation}}</td>
+<td>
+           Autorisation bloqué
+</td>
+        </tr>
+    {% else %}
+        <tr>
+            <td> pas de reservations trouver</td>
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(courses) }}
+</div>
+{{ include('pages/inc/footer.html.twig') }}

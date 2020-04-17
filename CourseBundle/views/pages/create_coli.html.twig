@@ -1,0 +1,12 @@
+{{ include('pages/inc/header.html.twig') }}
+<h3 style="background: url(images/1234.png) no-repeat center #fff;
+	" align="center" ><font color="yellow">Reserver une demande de transfert de coli</font>
+
+    <div style="width:150px" align="center">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-primary pull-right">Enregistrer </button>
+        {{ form_end(form) }}
+    </div>
+</h3>
+{{ include('pages/inc/footer.html.twig') }}
